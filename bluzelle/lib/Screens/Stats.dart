@@ -9,6 +9,7 @@ import 'package:bluzelle/Utils/BluzelleWrapper.dart';
 import 'package:bluzelle/Utils/HexColor.dart';
 import 'package:bluzelle/Widgets/CurvePainter.dart';
 import 'package:bluzelle/Widgets/ValidatorCardStats.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -34,6 +35,16 @@ class StatsState extends State<Stats>with AutomaticKeepAliveClientMixin{
       error =false;
       loading = true;
     });
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile) {
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+    }
+    else {
+      setState(() {
+        error =true;
+      });
+      return ;
+    }
     Response pools = await BluzelleWrapper.getPool();
     String body = utf8.decode(pools.bodyBytes);
     final json = jsonDecode(body);

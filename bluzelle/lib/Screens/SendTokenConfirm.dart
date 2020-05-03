@@ -129,7 +129,14 @@ class SendTokenConfirmsState extends State<SendTokenConfirm> {
                   setState(() {
                     placingOrder = true;
                   });
-                  String tx = await BluzelleTransactions.sendTokens(args.dAddress, args.amount);
+                  String tx = await BluzelleTransactions.sendTokens(args.dAddress, args.amount,context);
+                  if(tx =="cancel"){
+                    setState(() {
+                      placingOrder = false;
+
+                    });
+                    return;
+                  }
                   print(tx);
                   Navigator.popAndPushNamed(
                     context,

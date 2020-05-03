@@ -1,15 +1,11 @@
 import 'package:bluzelle/Constants.dart';
-import 'package:bluzelle/Models/ValidatorList.dart';
 import 'package:bluzelle/Screens/Login.dart';
-import 'package:bluzelle/Screens/NewProposal.dart';
 import 'package:bluzelle/Screens/PoposalsScreen.dart';
 import 'package:bluzelle/Screens/ValidatorListTab.dart';
 import 'package:bluzelle/Widgets/HeadingCard.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 

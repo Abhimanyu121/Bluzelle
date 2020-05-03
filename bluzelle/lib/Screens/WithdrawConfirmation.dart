@@ -143,7 +143,14 @@ class WithdrawConfirmationState extends State<WithdrawConfirmation>{
                   setState(() {
                     placingOrder =true;
                   });
-                  String tx =await BluzelleTransactions.withdrawReward(delegatorAddress, args.address);
+                  String tx =await BluzelleTransactions.withdrawReward(delegatorAddress, args.address, context);
+                  if(tx =="cancel"){
+                    setState(() {
+                      placingOrder = false;
+
+                    });
+                    return;
+                  }
                       Navigator.popAndPushNamed(
                         context,
                         WithdrawSuccess.routeName,
